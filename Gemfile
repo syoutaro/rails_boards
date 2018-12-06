@@ -12,6 +12,9 @@ gem 'jbuilder',     '2.7.0'
 
 gem 'annotate'
 gem 'rails-i18n'
+gem 'devise'
+gem 'hamlit-rails'
+gem 'erb2haml'
 
 
 group :development, :test do
