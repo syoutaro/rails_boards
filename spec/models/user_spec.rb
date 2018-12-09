@@ -19,13 +19,19 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-class User < ApplicationRecord
-  has_many :boards, inverse_of: :user, dependent: :delete_all
-  validates :name,
-    presence: true,
-    length: { maximum: 30 }
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+require 'rails_helper'
+
+RSpec.describe User, type: :model do
+  it "is invalid without a name" do
+    user = User.new(name: nil)
+    user.valid?
+    expect(user.errors[:name]).to include("が入力されていません。")
+  end
+
+  it "is invalid with a duplicate name" do
+    user = User.new(name: "aaaaaaaaaaaaaaaaaa
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    user.valid?
+    expect(user.errors[:name]).to include("は30文字以下に設定して下さい。")
+  end
 end

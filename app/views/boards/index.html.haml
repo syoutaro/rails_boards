@@ -1,2 +1,15 @@
-%h1 Boards#index
-%p Find me in app/views/boards/index.html.erb
+.d-flex.align-items-center
+  %h1 掲示板一覧
+  .ml-auto.boards__linkBox
+    = link_to '新規作成',new_board_path, class: "btn btn-outline-dark"
+%table.table.table-hover.boards__table
+  %thead.thead-dark
+    %tr
+      %th ID
+      %th タイトル
+      %th 作成者
+      %th 作成日時
+      %th 更新日時
+      %th
+      %th
+  = render partial: "board", collection: @boards

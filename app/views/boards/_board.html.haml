@@ -1,0 +1,12 @@
+%tbody
+  %tr
+    %th= board.id
+    %th= board.title
+    %th= board.user.name
+    %th= board.created_at.to_s(:datetime)
+    %th= board.updated_at.to_s(:datetime)
+    %td= link_to '詳細', board, class: 'btn btn-outline-dark'
+    - if board.user == current_user
+      %td= link_to '削除', board, class: 'btn btn-outline-dark', method: :delete, data: { confirm: '削除してよろしいですか？' }
+    - else
+      %td
