@@ -1,0 +1,6 @@
+.card
+  .card-header
+    %h4= board.title
+  .card-body
+    %p.card-text= auto_link(simple_format(board.body), html: {target: '_blank'})
+    %p.text-right.font-weight-bold.mr-10= board.user.name
