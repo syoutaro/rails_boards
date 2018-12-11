@@ -7,5 +7,4 @@ puts 'Start inserting seed "users" ...'
     password: Faker::Internet.password(8),
   })
   puts "\"#{user.name}\" has created!"
-
 end

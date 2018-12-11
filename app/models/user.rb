@@ -20,7 +20,8 @@
 #
 
 class User < ApplicationRecord
-  has_many :boards, inverse_of: :user, dependent: :delete_all
+  has_many :boards, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
   validates :name,
     presence: true,
     length: { maximum: 30 }

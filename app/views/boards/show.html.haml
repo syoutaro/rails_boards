@@ -4,3 +4,8 @@
     - if @board.user == current_user
       = link_to '編集', edit_board_path, class: 'btn btn-outline-dark'
 = render partial: "show_board", locals: { board: @board }
+.p-comment_list
+  .p-comment_listTitle
+    コメント
+    = render @board.comments
+= render partial: 'comments/form', locals: { comment: @comment }

@@ -13,13 +13,14 @@ class BoardsController < ApplicationController
       flash[:notice] = "投稿しました。"
       redirect_to :root
     else
-      flash[:alert] = "投稿に失敗しました"
+      flash[:alert] = @board.errors.full_messages
       render :new
     end
   end
 
   def show
     @board = Board.find(params[:id])
+    @comment = Comment.new(board_id: @board.id)
   end
 
   def edit
@@ -32,7 +33,7 @@ class BoardsController < ApplicationController
       flash[:notice] = "編集しました。"
       redirect_to edit_board_path
     else
-      flash[:alert] = "編集に失敗しました。"
+      flash[:alert] = @board.errors.full_messages
       render :edit
     end
   end
