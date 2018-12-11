@@ -7,3 +7,5 @@ ja:
         body: 本文
       comment:
         comment: コメント
+      tag:
+        name: タグの名前

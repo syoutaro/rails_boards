@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.page(params[:page]).per(6).order('updated_at DESC')
+    @boards = get_boards
+    @boards = @boards.page(params[:page]).per(6).order('updated_at DESC')
   end
 
   def new
@@ -48,6 +49,10 @@ class BoardsController < ApplicationController
   protected
 
   def board_params
-    params.require(:board).permit(:title, :body)
+    params.require(:board).permit(:title, :body, tag_ids: [])
+  end
+
+  def get_boards
+    params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all
   end
 end
