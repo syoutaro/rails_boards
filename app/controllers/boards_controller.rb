@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @boards = get_boards
     @boards = @boards.page(params[:page]).per(6).order('updated_at DESC')
@@ -25,7 +26,7 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    @board = Board.find(params[:id])
+    @board = current_user.boards.find(params[:id])
   end
 
   def update

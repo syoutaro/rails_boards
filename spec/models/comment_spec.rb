@@ -18,5 +18,15 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "コメントが無ければ無効の状態であること" do
+    comment = FactoryBot.build(:comment, comment: nil)
+    comment.valid?
+    expect(comment.errors[:comment]).to include("が入力されていません。")
+  end
+
+  it "コメントが1000文字以下でなければ無効の状態であること" do
+    comment = FactoryBot.build(:comment, comment: "a" * 1001)
+    comment.valid?
+    expect(comment.errors[:comment]).to include("は1000文字以下に設定して下さい。")
+  end
 end

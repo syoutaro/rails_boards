@@ -24,7 +24,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :delete_all
   validates :name,
     presence: true,
-    length: { maximum: 30 }
+    length: { maximum: 30 },
+    uniqueness: { case_sensitive: false }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
