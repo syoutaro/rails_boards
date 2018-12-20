@@ -38,6 +38,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     anbt-sql-formatter (0.0.7)
     annotate (2.7.4)
       activerecord (>= 3.2, < 6.0)
@@ -60,6 +62,14 @@ GEM
       sass (>= 3.5.2)
     builder (3.2.3)
     byebug (9.0.6)
+    capybara (3.12.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.2)
+      xpath (~> 3.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -132,6 +142,8 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -160,6 +172,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.8)
       pry (>= 0.10.4)
+    public_suffix (3.0.3)
     puma (3.9.1)
     rack (2.0.6)
     rack-test (1.1.0)
@@ -200,6 +213,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    regexp_parser (1.3.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -271,6 +285,8 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -281,6 +297,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap (= 4.1.3)
   byebug (= 9.0.6)
+  capybara
   coffee-rails (= 4.2.2)
   database_cleaner
   devise
@@ -291,6 +308,7 @@ DEPENDENCIES
   jbuilder (= 2.7.0)
   jquery-rails (= 4.3.1)
   kaminari
+  launchy
   listen (= 3.1.5)
   pg (= 0.20.0)
   pry-byebug

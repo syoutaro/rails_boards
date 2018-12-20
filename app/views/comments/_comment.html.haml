@@ -1,7 +1,7 @@
 .p-comment__item
   %p= auto_link(simple_format(comment.comment), html: {target: '_blank'})
   .p-comment__bottomLine
-    %span= comment.user.name
+    %span= comment.owner.name
     %span= comment.created_at.to_s(:datetime)
-    - if comment.user == current_user
+    - if comment.owner == current_user
       %span= link_to '削除', comment, method: :delete, data: { confirm: '削除してよろしいですか？' }

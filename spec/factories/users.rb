@@ -22,8 +22,8 @@
 FactoryBot.define do
   factory :user, aliases: [:owner] do
     sequence(:email) { |n| "tester#{n}@example.com" }
-    password "dottle-nouveau-pavilion-tights-furze"
-    encrypted_password "dottle-nouveau-pavilion-tights-furze"
+    sequence(:password) {|n| "dottle-nouveau-pavi#{n}lion-tights-furze"}
+    sequence(:encrypted_password) {|n| "dottle-nouveau-pavi#{n}lion-tights-furze"}
     sequence(:name) { |n| "test#{n}" }
   end
 end

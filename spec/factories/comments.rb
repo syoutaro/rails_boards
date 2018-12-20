@@ -18,7 +18,7 @@
 FactoryBot.define do
   factory :comment do
     comment "テストです。"
-    association :board
-    user {board.owner}
+    association :content
+    association :owner
   end
 end

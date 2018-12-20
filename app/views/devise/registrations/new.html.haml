@@ -7,21 +7,21 @@
       .form-group
         = f.label :name
         %br/
-        = f.text_field :name, autofocus: true, class: 'form-control'
+        = f.text_field :name, autofocus: true, placeholder: 'User Name', class: 'form-control'
       .form-group
         = f.label :email
         %br/
-        = f.email_field :email, autofocus: false, class: 'form-control'
+        = f.email_field :email, autofocus: false, placeholder: 'Email Address', class: 'form-control'
       .form-group
         = f.label :password
         - if @minimum_password_length
           %em= t('devise.shared.minimum_password_length', count: @minimum_password_length)
         %br/
-        = f.password_field :password, autocomplete: "off", class: 'form-control'
+        = f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control'
       .form-group
         = f.label :password_confirmation
         %br/
-        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+        = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password Confirmation', class: 'form-control'
       .form-group
         = f.submit t('.sign_up'), class: "btn btn-primary btn-block btn-lg"
     .text-center

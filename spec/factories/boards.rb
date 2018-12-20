@@ -15,7 +15,7 @@
 #
 
 FactoryBot.define do
-  factory :board do
+  factory :board , aliases: [:content] do
     sequence(:title) { |n| "タイトル#{n}" }
     body "テストです。"
     association :owner
