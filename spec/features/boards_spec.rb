@@ -4,19 +4,10 @@ RSpec.feature "Boards", type: :feature do
   scenario "新しい記事を作成する" do
     user = FactoryBot.build(:user)
 
-    visit root_path
-    click_link "アカウント登録"
-    fill_in "User Name", with: user.name
-    fill_in "Email Address", with: user.email
-    fill_in "Password", with: user.password
-    fill_in "Password Confirmation", with: user.password
-    click_button "アカウント登録"
+    sign_up_as user
 
     expect {
-      click_link "新規作成"
-      fill_in "タイトル", with: "テストタイトル"
-      fill_in "本文", with: "テストです。"
-      click_button "保存"
+      create_board
 
       expect(page).to have_content "投稿しました。"
       expect(page).to have_content "テストタイトル"
@@ -27,18 +18,9 @@ RSpec.feature "Boards", type: :feature do
   scenario "記事を編集する" do
     user = FactoryBot.build(:user)
 
-    visit root_path
-    click_link "アカウント登録"
-    fill_in "User Name", with: user.name
-    fill_in "Email Address", with: user.email
-    fill_in "Password", with: user.password
-    fill_in "Password Confirmation", with: user.password
-    click_button "アカウント登録"
+    sign_up_as user
 
-    click_link "新規作成"
-    fill_in "タイトル", with: "テストタイトル"
-    fill_in "本文", with: "テストです。"
-    click_button "保存"
+    create_board
 
     click_link "詳細"
 
@@ -56,18 +38,9 @@ RSpec.feature "Boards", type: :feature do
   scenario "記事を削除する" do
     user = FactoryBot.build(:user)
 
-    visit root_path
-    click_link "アカウント登録"
-    fill_in "User Name", with: user.name
-    fill_in "Email Address", with: user.email
-    fill_in "Password", with: user.password
-    fill_in "Password Confirmation", with: user.password
-    click_button "アカウント登録"
+    sign_up_as user
 
-    click_link "新規作成"
-    fill_in "タイトル", with: "テストタイトル"
-    fill_in "本文", with: "テストです。"
-    click_button "保存"
+    create_board
 
     expect {
       click_link "削除"

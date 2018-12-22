@@ -1,15 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe TagsController, type: :controller do
-  describe "#create" do
-    before do
-      @user = FactoryBot.create(:user)
-    end
+  let(:user) {FactoryBot.create(:user)}
 
+  describe "#create" do
     context "ログイン済みのユーザー" do
       it "タグを追加できること" do
         tag_params = FactoryBot.attributes_for(:tag)
-        sign_in @user
+        sign_in user
         expect {
           post :create, params: {tag: tag_params}
         }.to change(Tag, :count).by(1)
@@ -17,7 +15,7 @@ RSpec.describe TagsController, type: :controller do
 
       it "掲示板一覧にリダイレクトすること" do
         tag_params = FactoryBot.attributes_for(:tag)
-        sign_in @user
+        sign_in user
         post :create, params: {tag: tag_params}
         expect(response).to redirect_to root_path
       end

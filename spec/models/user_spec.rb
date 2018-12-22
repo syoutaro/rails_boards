@@ -23,10 +23,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  it "メールアドレス、パスワード、確認用パスワード、ユーザーネームが入力されていれば有効である" do
-    expect(FactoryBot.build(:user)).to be_valid
-  end
-
   it "ユーザーネームがなければ無効の状態であること" do
     user = FactoryBot.build(:user, name: nil)
     user.valid?
