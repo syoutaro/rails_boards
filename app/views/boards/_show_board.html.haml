@@ -1,8 +1,11 @@
 .card
   .card-header
+    = image_tag board.owner.avatar, class: "rounded-circle", style: "width: 25px;"
     %h4= board.title
     - board.tags.each do |tag|
       %span.badge.badge-primary= tag.name
   .card-body
+    .py-3
+      = image_tag board.image, class: "rounded-circle", style: "width: 80px;"
     %p.card-text= auto_link(simple_format(board.body), html: {target: '_blank'})
     %p.text-right.font-weight-bold.mr-10= board.owner.name

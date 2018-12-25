@@ -50,7 +50,7 @@ class BoardsController < ApplicationController
   protected
 
   def board_params
-    params.require(:board).permit(:title, :body, tag_ids: [])
+    params.require(:board).permit(:title, :body, :image, tag_ids: [])
   end
 
   def get_boards

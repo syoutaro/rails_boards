@@ -1,5 +1,9 @@
 = form_for @board do |f|
   .form-group
+    = f.label :image, '画像'
+    %br/
+    = f.file_field :image
+  .form-group
     = f.label :title, 'タイトル'
     = f.text_field :title, class: 'form-control'
   .form-group

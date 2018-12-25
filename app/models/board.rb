@@ -4,6 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  body       :text             not null
+#  image      :string
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -19,6 +20,7 @@ class Board < ApplicationRecord
   has_many :comments, dependent: :delete_all
   has_many :board_tag_relations, dependent: :delete_all
   has_many :tags, through: :board_tag_relations, dependent: :delete_all
+  mount_uploader :image, ImageUploader
 
   validates :title,
     presence: true,
