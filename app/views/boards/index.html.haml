@@ -5,6 +5,13 @@
         = image_tag current_user.avatar, class: "card-img-top rounded-circle"
         .card-body
           %h4.card-title= "@#{current_user.name}"
+          %p.card-text
+            %span.text-secondary
+            投稿数
+            = current_user.boards_count
+            %br
+            %span.text-secondary
+            = "#{current_user.created_at.to_s(:sign_up_time)}登録"
   .col-md-10.col-12
     .d-flex.align-items-center
       %h1 掲示板一覧

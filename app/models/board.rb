@@ -21,6 +21,7 @@ class Board < ApplicationRecord
   has_many :board_tag_relations, dependent: :delete_all
   has_many :tags, through: :board_tag_relations, dependent: :delete_all
   mount_uploader :image, ImageUploader
+  counter_culture :owner
 
   validates :title,
     presence: true,
