@@ -19,4 +19,5 @@ class Comment < ApplicationRecord
   belongs_to :content, class_name: Board, foreign_key: :board_id
   belongs_to :owner, class_name: User, foreign_key: :user_id
   validates :comment, presence: true, length: { maximum: 1000 }
+  counter_culture :content
 end

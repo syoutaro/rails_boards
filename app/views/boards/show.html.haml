@@ -6,7 +6,7 @@
 = render partial: "show_board", locals: { board: @board }
 .p-comment_list
   .p-comment_listTitle
-    コメント
+    コメント(#{@board.comments_count})
     = render @board.comments
 - if user_signed_in?
   = render partial: 'comments/form', locals: { comment: @comment }

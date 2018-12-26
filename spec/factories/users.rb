@@ -5,6 +5,7 @@
 #  id                     :integer          not null, primary key
 #  avatar                 :string
 #  boards_count           :integer          default(0), not null
+#  comment_count          :integer          default(0), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  name                   :string           not null
