@@ -19,6 +19,7 @@ FactoryBot.define do
   factory :board , aliases: [:content] do
     sequence(:title) { |n| "タイトル#{n}" }
     body "テストです。"
+    image File.open(File.join(Rails.root, "db/picture/image/image1.jpg"))
     association :owner
   end
 end

@@ -2,15 +2,17 @@ require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
   let(:user) {FactoryBot.create(:user)}
+  let(:board) {FactoryBot.create(:board, owner: user)}
 
   describe "#create" do
     context "ログイン済みのユーザーとして" do
       it "コメントを追加できること" do
-        # comment_params = FactoryBot.attributes_for(:comment)
-        # sign_in user
-        # expect {
-        #   post :create, params: {id: user.id, comment: comment_params}
-        # }.to change(user.comments, :count).by(1)
+        comment_params = FactoryBot.create(:comment, content: board)
+        sign_in user
+        pending "パスしない"
+        expect {
+          post :create, params: {comment: comment_params}
+        }.to change(user.comments, :count).by(1)
       end
     end
 
