@@ -7,11 +7,10 @@ RSpec.describe CommentsController, type: :controller do
   describe "#create" do
     context "ログイン済みのユーザーとして" do
       it "コメントを追加できること" do
-        comment_params = FactoryBot.create(:comment, content: board)
+        comment_params = FactoryBot.build(:comment).attributes
         sign_in user
-        pending "パスしない"
         expect {
-          post :create, params: {comment: comment_params}
+          post :create, params: {comment: comment_params, board_id: board.id}
         }.to change(user.comments, :count).by(1)
       end
     end
