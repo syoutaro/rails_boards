@@ -11,13 +11,22 @@ class BoardsController < ApplicationController
 
   def create
     @board = current_user.boards.create(board_params)
-    if @board.save
-      flash[:notice] = "投稿しました。"
-      redirect_to :root
-    else
-      flash[:alert] = @board.errors.full_messages
-      render :new
+    Board.transaction do
+      @board.save!
+      sub_point
     end
+    flash[:notice] = "投稿しました。"
+    redirect_to :root
+    rescue => e
+    flash[:alert] = @board.errors.full_messages
+    render :new
+    # if @board.save
+    #   flash[:notice] = "投稿しました。"
+    #   redirect_to :root
+    # else
+    #   flash[:alert] = @board.errors.full_messages
+    #   render :new
+    # end
   end
 
   def show
@@ -55,5 +64,13 @@ class BoardsController < ApplicationController
 
   def get_boards
     params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all
+  end
+
+  def sub_point
+    @user = User.find(current_user.id)
+    @point = @user.point
+    @point = @point -= 1
+    @user.point = @point
+    @user.save!
   end
 end
