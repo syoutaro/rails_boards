@@ -8,6 +8,7 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  name                   :string           not null
+#  point                  :integer          default(5), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -28,6 +29,10 @@ class User < ApplicationRecord
     presence: true,
     length: { maximum: 30 },
     uniqueness: { case_sensitive: false }
+validates :point,
+    presence: true,
+    numericality: { only_integer: true,
+      greater_than_or_equal_to: 0 }
 
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:

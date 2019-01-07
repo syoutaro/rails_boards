@@ -12,6 +12,9 @@
             %br
             %span.text-secondary
             = "#{current_user.created_at.to_s(:sign_up_time)}登録"
+            %br
+            %span.text-secondary
+            = "ポイント #{current_user.point}"
   .col-md-10.col-12
     .d-flex.align-items-center
       %h1 掲示板一覧
@@ -24,7 +27,7 @@
               class: 'form-control boards__select',                                   |
               onchange: 'submit(this.form);'                                          |
             }                                                                |
-        - if user_signed_in?
+        - if user_signed_in? && current_user.point > 0
           = link_to '新規作成',new_board_path, class: "btn btn-outline-dark"
         - if user_signed_in?
           = link_to 'タグ新規作成',new_tag_path, class: "btn btn-outline-dark"
