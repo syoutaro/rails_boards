@@ -25,14 +25,16 @@
 class User < ApplicationRecord
   has_many :boards, dependent: :delete_all
   has_many :comments, dependent: :delete_all
+
   validates :name,
     presence: true,
     length: { maximum: 30 },
     uniqueness: { case_sensitive: false }
-validates :point,
+
+  validates :point,
     presence: true,
     numericality: { only_integer: true,
-      greater_than_or_equal_to: 0 }
+    greater_than_or_equal_to: 0 }
 
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:

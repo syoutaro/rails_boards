@@ -28,5 +28,6 @@ FactoryBot.define do
     sequence(:password) {|n| "dottle-nouveau-pavi#{n}lion-tights-furze"}
     sequence(:encrypted_password) {|n| "dottle-nouveau-pavi#{n}lion-tights-furze"}
     sequence(:name) { |n| "test#{n}" }
+    point 5
   end
 end

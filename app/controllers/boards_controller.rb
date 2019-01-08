@@ -13,20 +13,13 @@ class BoardsController < ApplicationController
     @board = current_user.boards.create(board_params)
     Board.transaction do
       @board.save!
-      sub_point
+      sub_point1
     end
     flash[:notice] = "投稿しました。"
     redirect_to :root
     rescue => e
     flash[:alert] = @board.errors.full_messages
     render :new
-    # if @board.save
-    #   flash[:notice] = "投稿しました。"
-    #   redirect_to :root
-    # else
-    #   flash[:alert] = @board.errors.full_messages
-    #   render :new
-    # end
   end
 
   def show
@@ -66,7 +59,7 @@ class BoardsController < ApplicationController
     params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all
   end
 
-  def sub_point
+  def sub_point1
     @user = User.find(current_user.id)
     @point = @user.point
     @point = @point -= 1
