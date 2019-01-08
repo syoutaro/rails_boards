@@ -59,6 +59,17 @@ RSpec.describe BoardsController, type: :controller do
         expect {
           post :create, params: {board: board_params}
         }.to change(user.boards, :count).by(1)
+        expect(user.reload.point).to eq 4
+      end
+
+      #ポイントは5がデフォルト
+      it "掲示板の記事を追加時ポイントが1減る" do
+        board_params = FactoryBot.attributes_for(:board)
+        sign_in user
+        expect {
+          post :create, params: {board: board_params}
+        }.to change(user.boards, :count).by(1)
+        expect(user.reload.point).to eq 4
       end
 
       it "掲示板一覧にリダイレクトすること" do
