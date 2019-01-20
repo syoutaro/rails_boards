@@ -2,16 +2,16 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
-#  avatar                 :string
+#  id                     :bigint(8)        not null, primary key
+#  avatar                 :string(255)
 #  boards_count           :integer          default(0), not null
-#  email                  :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
-#  name                   :string           not null
+#  email                  :string(255)      default(""), not null
+#  encrypted_password     :string(255)      default(""), not null
+#  name                   :string(255)      not null
 #  point                  :integer          default(5), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
-#  reset_password_token   :string
+#  reset_password_token   :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
