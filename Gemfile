@@ -22,9 +22,9 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'counter_culture'
+gem 'mysql2'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.13'
   gem 'spring-commands-rspec'
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'rails-flog', require: 'flog'
@@ -50,7 +50,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
   gem 'fog', '1.42'
 end
 
