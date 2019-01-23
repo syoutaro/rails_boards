@@ -10,14 +10,13 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = current_user.boards.create(board_params)
     Board.transaction do
-      @board.save!
-      sub_point1
+      @board = current_user.boards.create!(board_params)
+      current_user.lose_point!
     end
     flash[:notice] = "投稿しました。"
     redirect_to :root
-    rescue => e
+  rescue => e
     flash[:alert] = @board.errors.full_messages
     render :new
   end
@@ -49,7 +48,7 @@ class BoardsController < ApplicationController
     redirect_to :root
   end
 
-  protected
+  private
 
   def board_params
     params.require(:board).permit(:title, :body, :image, tag_ids: [])
@@ -57,13 +56,5 @@ class BoardsController < ApplicationController
 
   def get_boards
     params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all
-  end
-
-  def sub_point1
-    @user = User.find(current_user.id)
-    @point = @user.point
-    @point = @point -= 1
-    @user.point = @point
-    @user.save!
   end
 end

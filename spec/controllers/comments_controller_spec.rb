@@ -25,7 +25,7 @@ RSpec.describe CommentsController, type: :controller do
       it "サインイン画面にリダイレクトすること" do
         comment_params = FactoryBot.attributes_for(:comment)
         post :create, params: {comment: comment_params}
-        expect(response).to redirect_to "/users/sign_in"
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
@@ -70,7 +70,7 @@ RSpec.describe CommentsController, type: :controller do
 
       it "サインイン画面にリダイレクトすること" do
         delete :destroy, params: {id: @comment.id}
-        expect(response).to redirect_to "/users/sign_in"
+        expect(response).to redirect_to new_user_session_path
       end
 
       it "コメントを削除できないこと" do

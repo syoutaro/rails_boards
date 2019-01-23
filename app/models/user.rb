@@ -41,4 +41,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
+
+  def lose_point!
+    self.point -= 1
+    self.save!
+  end
 end

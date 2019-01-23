@@ -3,9 +3,11 @@ require 'rails_helper'
 RSpec.feature "Boards", type: :feature do
   let(:user) {FactoryBot.build(:user)}
 
-  scenario "新しい記事を作成する" do
-
+  before do
     sign_up_as user
+  end
+
+  scenario "新しい記事を作成する" do
 
     expect {
       create_board
@@ -24,8 +26,6 @@ RSpec.feature "Boards", type: :feature do
 
   scenario "記事を編集する" do
 
-    sign_up_as user
-
     create_board
 
     click_link "詳細"
@@ -42,8 +42,6 @@ RSpec.feature "Boards", type: :feature do
   end
 
   scenario "記事を削除する" do
-
-    sign_up_as user
 
     create_board
 

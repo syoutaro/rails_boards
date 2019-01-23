@@ -46,7 +46,7 @@ RSpec.describe BoardsController, type: :controller do
 
       it "サインイン画面にリダイレクトすること" do
         get :new, params: {id: @board.id}
-        expect(response).to redirect_to "/users/sign_in"
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
@@ -90,7 +90,7 @@ RSpec.describe BoardsController, type: :controller do
       it "サインイン画面にリダイレクトすること" do
         board_params = FactoryBot.attributes_for(:board)
         post :create, params: {board: board_params}
-        expect(response).to redirect_to "/users/sign_in"
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
@@ -206,7 +206,7 @@ RSpec.describe BoardsController, type: :controller do
       it "サインイン画面にリダイレクトする" do
         board_params = FactoryBot.attributes_for(:board)
         patch :update, params: {id: @board.id, board: board_params}
-        expect(response).to redirect_to "/users/sign_in"
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
@@ -257,7 +257,7 @@ RSpec.describe BoardsController, type: :controller do
 
       it "サインイン画面にリダイレクトすること" do
         delete :destroy, params: {id: @board.id}
-        expect(response).to redirect_to "/users/sign_in"
+        expect(response).to redirect_to new_user_session_path
       end
 
       it "掲示板の記事を削除できないこと" do

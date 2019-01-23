@@ -24,7 +24,7 @@ RSpec.describe Tag, type: :model do
   end
 
   it "タグの名前が重複するのを許可しないこと" do
-    Tag.create(name: "テスト１")
+    Tag.create!(name: "テスト１")
     tag = Tag.new(name: "テスト１")
     tag.valid?
     expect(tag.errors[:name]).to include("は既に使用されています。")
