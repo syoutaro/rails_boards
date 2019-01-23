@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.feature "Comments", type: :feature do
   let(:user) {FactoryBot.build(:user)}
 
-  scenario "コメントの作成と削除" do
-
+  before do
     sign_up_as user
+  end
+  scenario "コメントの作成と削除" do
 
     create_board
 

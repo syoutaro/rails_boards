@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.feature "Tags", type: :feature do
   let(:user) {FactoryBot.build(:user)}
+  before do
+    sign_up_as user
+  end
 
   scenario "タグの作成" do
-
-    sign_up_as user
 
     create_board
 

@@ -5,7 +5,7 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.create(tag_params)
+    @tag = Tag.new(tag_params)
     if @tag.save
       flash[:notice] = "タグを作成しました"
       redirect_to :root
@@ -15,7 +15,7 @@ class TagsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def tag_params
     params.require(:tag).permit(:name)
