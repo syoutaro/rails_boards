@@ -63,6 +63,6 @@ class BoardsController < ApplicationController
   end
 
   def get_boards
-    params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all
+    params[:tag_id].present? ? Tag.find(params[:tag_id]).boards.includes(:owner) : Board.includes(:owner).all
   end
 end
