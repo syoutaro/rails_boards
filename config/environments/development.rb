@@ -1,4 +1,13 @@
 Rails.application.configure do
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+    # N+1クエリが発生しても警告を出さない
+    Bullet.add_whitelist type: :n_plus_one_query, class_name: 'Comment', association: :owner
+  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
