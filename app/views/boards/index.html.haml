@@ -15,6 +15,7 @@
             %br
             %span.text-secondary
             = "ポイント #{current_user.point}"
+            = link_to "CSV出力", root_path(format: :csv), class: "btn btn-primary"
   .col-md-10.col-12
     .d-flex.align-items-center
       %h1 掲示板一覧

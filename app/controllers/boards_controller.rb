@@ -1,8 +1,16 @@
 class BoardsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    @boards = get_boards
-    @boards = @boards.page(params[:page]).per(6).order('updated_at DESC')
+    respond_to do |format|
+      format.html do
+        @boards = get_boards
+        @boards = @boards.page(params[:page]).per(6).order('updated_at DESC')
+      end
+      format.csv do
+        @boards = current_user.boards
+        send_data render_to_string, filename: "current_user_boards.csv", type: :csv
+      end
+    end
   end
 
   def new
