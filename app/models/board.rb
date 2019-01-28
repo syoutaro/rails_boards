@@ -2,22 +2,18 @@
 #
 # Table name: boards
 #
-#  id             :bigint(8)        not null, primary key
-#  body           :text(65535)      not null
+#  id             :integer          not null, primary key
+#  body           :text             not null
 #  comments_count :integer          default(0), not null
-#  image          :string(255)
-#  title          :string(255)      not null
+#  image          :string
+#  title          :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  user_id        :bigint(8)        not null
+#  user_id        :integer          not null
 #
 # Indexes
 #
 #  index_boards_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
 #
 
 class Board < ApplicationRecord

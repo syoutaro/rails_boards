@@ -22,7 +22,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'counter_culture'
-gem 'mysql2'
+
 
 group :development, :test do
   gem 'spring-commands-rspec'
@@ -31,6 +31,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'sqlite3'
   gem 'web-console',           '3.5.1'
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
@@ -51,7 +52,8 @@ group :test do
 end
 
 group :production do
-  gem 'fog', '1.42'
+  gem 'mysql2'
+  gem 'fog-aws'
 end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります
