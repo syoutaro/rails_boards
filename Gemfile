@@ -27,7 +27,6 @@ gem 'counter_culture'
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'byebug',  '9.0.6', platform: :mri
-  gem 'rails-flog', require: 'flog'
 end
 
 group :development do
