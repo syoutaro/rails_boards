@@ -27,10 +27,10 @@ gem 'counter_culture'
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'sqlite3'
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'web-console',           '3.5.1'
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
@@ -51,6 +51,6 @@ group :test do
 end
 
 group :production do
-  gem 'mysql2'
-  gem 'fog-aws'
+  gem 'fog'
+  gem 'pg'
 end
