@@ -51,6 +51,6 @@ group :test do
 end
 
 group :production do
-  gem 'mysql2'
   gem 'fog-aws'
+  gem 'pg'
 end
