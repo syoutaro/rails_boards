@@ -6,8 +6,6 @@
 
 # Ignore bundler config.
 /.bundle
-/vendor/bundle/
-/vendor/ruby/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -23,23 +21,3 @@
 /yarn-error.log
 
 .byebug_history
-# Ignore other unneeded files.doc/
-*.swp
-*~
-*node_modules/
-.project
-.DS_Store
-.idea
-.secret
-
-
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
-public/assets/*
-!public/assets/.sprockets-manifest-*.json
-
-app/assets/audios/*
-app/assets/images/*
