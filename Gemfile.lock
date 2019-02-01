@@ -47,6 +47,11 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
     arel (8.0.0)
+    asset_sync (2.6.0)
+      activemodel (>= 4.1.0)
+      fog-core
+      mime-types (>= 2.99)
+      unf
     autoprefixer-rails (9.4.7)
       execjs
     bcrypt (3.1.12)
@@ -306,6 +311,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
     uniform_notifier (1.12.1)
     warden (1.2.8)
       rack (>= 2.0.6)
@@ -325,6 +333,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  asset_sync
   better_errors
   binding_of_caller
   bootstrap (= 4.1.3)

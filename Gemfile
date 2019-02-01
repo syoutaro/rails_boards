@@ -53,4 +53,5 @@ end
 group :production do
   gem 'mysql2'
   gem 'fog-aws'
+  gem "asset_sync"
 end
