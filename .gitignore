@@ -33,3 +33,13 @@
 .secret
 
 
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+public/assets/*
+!public/assets/.sprockets-manifest-*.json
+
+app/assets/audios/*
+app/assets/images/*
