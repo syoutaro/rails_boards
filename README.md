@@ -1,6 +1,5 @@
 # Name
-
-##RailsBoards
+RailsBoards
 
 # Overview
 記事の投稿サイトです。
